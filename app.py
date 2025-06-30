@@ -8,10 +8,15 @@ from langchain_community.llms import HuggingFaceHub
 from langchain_openai import ChatOpenAI
 from langchain_experimental.agents import create_pandas_dataframe_agent
 
+
+# Read from secrets
+api_key = st.secrets["OPENAI_API_KEY"]
+api_base = st.secrets["OPENAI_API_BASE"]
+
 # Load environment variables
 llm = ChatOpenAI(
-    openai_api_key=st.secrets["OPENAI_API_KEY"],
-    openai_api_base=st.secrets["OPENAI_API_BASE"],
+    openai_api_key=api_key,
+    openai_api_base=api_base,
     model="mistralai/mistral-7b-instruct"
 )
 # Load internship data
