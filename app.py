@@ -9,15 +9,11 @@ from langchain_openai import ChatOpenAI
 from langchain_experimental.agents import create_pandas_dataframe_agent
 
 # Load environment variables
-load_dotenv()
-
-# Load OpenRouter-compatible LLM
 llm = ChatOpenAI(
-    openai_api_key=os.getenv("OPENAI_API_KEY"),
-    openai_api_base=os.getenv("OPENAI_API_BASE"),
+    openai_api_key=st.secrets["OPENAI_API_KEY"],
+    openai_api_base=st.secrets["OPENAI_API_BASE"],
     model="mistralai/mistral-7b-instruct"
 )
-
 # Load internship data
 @st.cache_data
 def load_internship_data():
